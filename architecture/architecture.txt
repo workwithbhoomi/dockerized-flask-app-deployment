@@ -1,0 +1,56 @@
+Dockerized Flask App Deployment Architecture:
+
+Developer (Local Machine)
+        │
+        │ 1. Build Docker Image
+        ▼
+Docker Image (Flask App)
+        │
+        │ 2. Push Image
+        ▼
+Docker Hub Repository
+        │
+        │ 3. Pull Image
+        ▼
+AWS EC2 Instance (Ubuntu)
+        │
+        │ 4. Run Docker Container
+        ▼
+Docker Container
+        │
+        │ 5. Expose Port 80
+        ▼
+Flask Web Application
+        │
+        │ 6. Access via Public IP
+        ▼
+Browser / End User
+
+
+Simplified Cloud Workflow:
+
+Local Flask App
+     ↓
+Dockerize Application
+     ↓
+Push to Docker Hub
+     ↓
+Pull Image on AWS EC2
+     ↓
+Run Container using Docker
+     ↓
+Expose Application on Port 80
+     ↓
+Access Application using EC2 Public IP
+
+
+Networking Flow:
+
+Browser Request
+     ↓
+EC2 Public IP :80
+     ↓
+Docker Port Mapping
+80 → 5000
+     ↓
+Flask Application Running Inside Container
